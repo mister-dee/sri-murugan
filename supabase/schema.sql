@@ -1,0 +1,5 @@
+-- Database schema is maintained in:
+-- supabase/migrations/001_initial_schema.sql
+--
+-- Paste that migration into the Supabase SQL editor, or run it through the
+-- Supabase CLI during deployment.
