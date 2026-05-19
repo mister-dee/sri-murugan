@@ -7,7 +7,8 @@ export async function GET() {
     const dest = process.cwd() + "\\public\\coconut-market.png";
     fs.copyFileSync(src, dest);
     return NextResponse.json({ success: true, message: "Image copied!" });
-  } catch (error: any) {
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "Unknown error";
+    return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
 }
