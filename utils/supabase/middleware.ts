@@ -20,8 +20,9 @@ export const createClient = (request: NextRequest) => {
         getAll() {
           return request.cookies.getAll()
         },
+        // @ts-expect-error - NextRequest cookies types mismatch with Supabase SSR cookies type
         setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) => request.cookies.set(name, value))
+          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))
           supabaseResponse = NextResponse.next({
             request,
           })
